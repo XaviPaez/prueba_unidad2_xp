@@ -43,7 +43,7 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
 
 	@Override
 	public Doctor buscarPorCedula(String cedula) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub		
 		TypedQuery<Doctor> myQuery=this.entityManager.createQuery("SELECT d FROM Doctor d WHERE d.cedula= :datoCedula", Doctor.class);
 		myQuery.setParameter("datoCedula", cedula);
 		return myQuery.getSingleResult();

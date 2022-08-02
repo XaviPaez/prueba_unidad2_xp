@@ -56,8 +56,8 @@ public class Prueba2PaP2XpApplication implements CommandLineRunner {
 		doctor1.setCodigoSenescyt("2022-B");
 		doctor1.setGenero("Femenino");
 		doctor1.setNumeroConsultorio("1B");
-		this.doctorService.insertar(doctor);
-		this.doctorService.insertar(doctor1);
+	//	this.doctorService.insertar(doctor);
+	//	this.doctorService.insertar(doctor1);
 
 	
 		//2. Funcionalidad CRUD para pacientes
@@ -68,8 +68,8 @@ public class Prueba2PaP2XpApplication implements CommandLineRunner {
 		paciente.setFechaNacimiento(LocalDateTime.now());
 		paciente.setCodigoSeguro("0001-A");
 		paciente.setGenero("Masculino");
-		paciente.setPeso("70kg");
-		paciente.setEstatura("1.68");
+		paciente.setPeso(55.4);
+		paciente.setEstatura(1.70);
 	
 		Paciente paciente1 = new Paciente();
 		paciente1.setNombre("Martina");
@@ -78,21 +78,16 @@ public class Prueba2PaP2XpApplication implements CommandLineRunner {
 		paciente1.setFechaNacimiento(LocalDateTime.now());
 		paciente1.setCodigoSeguro("005601-D");
 		paciente1.setGenero("Femenino");
-		paciente1.setPeso("50kg");
-		paciente1.setEstatura("1.60");
-		this.iPacienteService.insertar(paciente);
-		this.iPacienteService.insertar(paciente1);
+		paciente1.setPeso(50);
+		paciente1.setEstatura(1.60);
+	//	this.iPacienteService.insertar(paciente);
+	//	this.iPacienteService.insertar(paciente1);
 		
 		
 		//3. Agendamiento cita medica
 		this.citaService.agendarCita("1", LocalDateTime.now(), new BigDecimal(15), "EasyLab", doctor1.getCedula(), paciente1.getCedula());
 		//4. Actualizacion cita medica
 		this.citaService.actualizar("1", "Gripe", "Ibuprofeno", LocalDateTime.now());
-		//5. Reporte pacientes
-		List<PacienteSencillo> listaPacientes =this.citaService.buscarFechaGenero(LocalDateTime.of(2022, 7, 20, 7, 55), "Masculino");
-		 LOG.debug("Cantidad de pacientes : " + listaPacientes.size());
-		for (PacienteSencillo pacienteSencillo : listaPacientes) {
-            LOG.debug("Pacientes: " + pacienteSencillo);
-	}
+
 	}
 }
