@@ -85,9 +85,16 @@ public class Prueba2PaP2XpApplication implements CommandLineRunner {
 		
 		
 		//3. Agendamiento cita medica
-		this.citaService.agendarCita("1", LocalDateTime.now(), new BigDecimal(15), "EasyLab", doctor1.getCedula(), paciente1.getCedula());
+		//this.citaService.agendarCita("1", LocalDateTime.now(), new BigDecimal(15), "EasyLab", doctor1.getCedula(), paciente1.getCedula());
 		//4. Actualizacion cita medica
-		this.citaService.actualizar("1", "Gripe", "Ibuprofeno", LocalDateTime.now());
+		//this.citaService.actualizar("1", "Gripe", "Ibuprofeno", LocalDateTime.now());
+		
+		//Punto 5
+		List<PacienteSencillo> lista =this.citaService.buscarFechaGenero(LocalDateTime.of(2022, 7, 28, 7, 55), "Masculino");
+        LOG.debug("Cantidad de registros consultados: " + lista.size());
+        for (PacienteSencillo pacienteSencillo : lista) {
+            LOG.debug("Paciente Sencillo: " + pacienteSencillo);
+        }
 
 	}
 }
